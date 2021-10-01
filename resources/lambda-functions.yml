@@ -1,0 +1,6 @@
+graphql:
+  handler: lambda/graphql.graphql
+  package:
+    include:
+      - '!**'
+      - lambda/**

@@ -1,0 +1,77 @@
+- dataSource: "graphql"
+  type: Query
+  field: "player"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playersByTeam"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playerWithHighestProp"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playerWithLowestProp"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playersByProp"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playersByPropAndPos"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "team"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "allTeams"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "fixtures"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "getTeamsFixtures"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "getAllTeamsFixtures"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "playersSearch"
+  request: "common-request.vtl"
+  response: "common-response.vtl"
+
+- dataSource: "graphql"
+  type: Query
+  field: "eventStatus"
+  request: "common-request.vtl"
+  response: "common-response.vtl"

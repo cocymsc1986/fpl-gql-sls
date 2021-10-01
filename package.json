@@ -1,0 +1,17 @@
+{
+  "name": "fpl-gql-sls",
+  "version": "1.0.0",
+  "description": "AppSync GQL API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "serverless-appsync-plugin": "^1.12.0",
+    "serverless-appsync-simulator": "^0.19.1",
+    "serverless-offline": "^8.2.0"
+  }
+}
