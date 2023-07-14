@@ -15,7 +15,7 @@ resource "aws_s3_object" "lambda_fpl" {
 }
 
 resource "aws_lambda_function" "fpl_gql" {
-  function_name = "fpl_gql"
+  function_name = "${var.prefix}"
 
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_fpl.key

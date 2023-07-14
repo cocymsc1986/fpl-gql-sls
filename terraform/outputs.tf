@@ -1,8 +1,8 @@
-# output "function_name" {
-#   description = "Name of the Lambda function."
+output "function_name" {
+  description = "Name of the Lambda function."
 
-#   value = aws_lambda_function.fpl_gql.function_name
-# }
+  value = aws_lambda_function.fpl_gql.function_name
+}
 
 output "lambda_bucket_name" {
   description = "Name of the S3 bucket used to store function code."
