@@ -3,7 +3,7 @@ name: Deploy Infrastructure
 on:
   push:
     branches:
-      - master
+      - "**"
 
 permissions:
   contents: read
@@ -75,7 +75,7 @@ jobs:
         working-directory: terraform
         shell: bash
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -input=false tf.plan
         working-directory: terraform
         shell: bash
