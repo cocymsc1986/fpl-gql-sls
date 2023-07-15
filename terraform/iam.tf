@@ -12,6 +12,7 @@ data "aws_iam_policy_document" "iam_lambda_role_document" {
 data "aws_iam_policy_document" "iam_cloudwatch_logging_document" {
   statement {
     actions = [
+      "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:CreateLogDelivery",
       "logs:PutLogEvents"
