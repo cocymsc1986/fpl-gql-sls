@@ -3,7 +3,7 @@ name: Deploy Infrastructure
 on:
   push:
     branches:
-      - feature/use-tf-to-deploy
+      - master
 
 permissions:
   contents: read
