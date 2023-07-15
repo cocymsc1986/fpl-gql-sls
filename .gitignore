@@ -1,2 +1,6 @@
 node_modules
 .serverless
+lambda.zip
+dist
+
+terraform/.terraform

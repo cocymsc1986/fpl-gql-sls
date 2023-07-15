@@ -1,4 +1,6 @@
-const { service } = require('../datasources/fpl');
+const { fpl } = require("../datasources");
+
+const { service } = fpl;
 
 module.exports.resolvers = {
   eventStatus: async () => {
@@ -11,7 +13,7 @@ module.exports.resolvers = {
 
       return data;
     } catch (err) {
-      console.error('Error getting event status: ', err);
+      console.error("Error getting event status: ", err);
     }
   },
 
@@ -30,7 +32,7 @@ module.exports.resolvers = {
 
       return player;
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -47,7 +49,7 @@ module.exports.resolvers = {
 
       return { players };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -69,7 +71,7 @@ module.exports.resolvers = {
 
       return { player };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -86,7 +88,7 @@ module.exports.resolvers = {
 
       return { player };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -105,7 +107,7 @@ module.exports.resolvers = {
 
       return { players };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -128,7 +130,7 @@ module.exports.resolvers = {
 
       return { players };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -165,7 +167,7 @@ module.exports.resolvers = {
 
       return { players };
     } catch (err) {
-      console.error('Error getting player data: ', err);
+      console.error("Error getting player data: ", err);
     }
   },
 
@@ -180,28 +182,27 @@ module.exports.resolvers = {
       const team = teams.find((el) => el.id == id);
 
       console.info(`Got data for team id: ${id}`);
-
-      console.info('team: ', team);
+      console.info("team: ", team);
 
       return team;
     } catch (err) {
-      console.error('Error getting team data: ', err);
+      console.error("Error getting team data: ", err);
     }
   },
 
   allTeams: async () => {
-    console.info('Getting data for all teams');
+    console.info("Getting data for all teams");
 
     try {
       const {
         data: { teams },
       } = await service.getData();
 
-      console.info('Got data for all teams');
+      console.info("Got data for all teams");
 
       return { teams };
     } catch (err) {
-      console.error('Error getting team data: ', err);
+      console.error("Error getting team data: ", err);
     }
   },
 
@@ -217,7 +218,7 @@ module.exports.resolvers = {
 
       return { fixtures, id: gw };
     } catch (err) {
-      console.error('Error getting fixture data: ', err);
+      console.error("Error getting fixture data: ", err);
     }
   },
 
@@ -237,7 +238,7 @@ module.exports.resolvers = {
 
       return { fixtures, id };
     } catch (err) {
-      console.error('Error getting teams fixtures: ', err);
+      console.error("Error getting teams fixtures: ", err);
     }
   },
 
@@ -261,7 +262,7 @@ module.exports.resolvers = {
 
       return { fixtures: teamSortedFixtures };
     } catch (err) {
-      console.error('Error getting teams fixtures: ', err);
+      console.error("Error getting teams fixtures: ", err);
     }
   },
 };
