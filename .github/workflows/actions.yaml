@@ -28,6 +28,8 @@ jobs:
         run: yarn
       - name: Run Unit Tests
         run: yarn test
+      - name: Run Type Check
+        run: yarn type-check
       - name: Build Project
         run: yarn build
       - name: Upload build articfact
