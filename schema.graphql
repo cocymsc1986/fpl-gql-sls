@@ -87,7 +87,6 @@ type Fixtures {
 type Fixture {
   kickoff_time: String!
   started: Boolean!
-  kickoff_time: String!
   team_h_score: Int
   team_a_score: Int
   finished: Boolean!
