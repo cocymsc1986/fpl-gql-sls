@@ -15,121 +15,15 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Query = {
-  __typename?: 'Query';
-  allTeams?: Maybe<AllTeams>;
-  eventStatus?: Maybe<EventStatus>;
-  fixtures?: Maybe<Fixtures>;
-  getAllTeamsFixtures?: Maybe<GetAllTeamsFixtures>;
-  getTeamsFixtures?: Maybe<GetTeamsFixtures>;
-  player?: Maybe<Player>;
-  playersByProp?: Maybe<PlayersByProp>;
-  playersByPropAndPos?: Maybe<PlayersByPropAndPos>;
-  playersByTeam?: Maybe<PlayersByTeam>;
-  playersSearch?: Maybe<PlayersSearch>;
-  playerWithHighestProp?: Maybe<PlayerWithHighestProp>;
-  playerWithLowestProp?: Maybe<PlayerWithLowestProp>;
-  team?: Maybe<Team>;
-};
-
-
-export type QueryFixturesArgs = {
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type QueryGetTeamsFixturesArgs = {
-  amount?: InputMaybe<Scalars['Int']['input']>;
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type QueryPlayerArgs = {
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type QueryPlayersByPropArgs = {
-  amount?: InputMaybe<Scalars['Int']['input']>;
-  prop?: InputMaybe<Scalars['String']['input']>;
-  reverseOrder?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type QueryPlayersByPropAndPosArgs = {
-  amount?: InputMaybe<Scalars['Int']['input']>;
-  position?: InputMaybe<Scalars['String']['input']>;
-  prop?: InputMaybe<Scalars['String']['input']>;
-  reverseOrder?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type QueryPlayersByTeamArgs = {
-  team?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type QueryPlayersSearchArgs = {
-  amount?: InputMaybe<Scalars['Int']['input']>;
-  term?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryPlayerWithHighestPropArgs = {
-  prop?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryPlayerWithLowestPropArgs = {
-  prop?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryTeamArgs = {
-  id?: InputMaybe<Scalars['Int']['input']>;
-};
-
 export type AllTeams = {
   __typename?: 'AllTeams';
   teams?: Maybe<Array<Maybe<Team>>>;
-};
-
-export type Team = {
-  __typename?: 'Team';
-  code: Scalars['Int']['output'];
-  current_event_fixture?: Maybe<Array<Maybe<TeamFixture>>>;
-  id: Scalars['Int']['output'];
-  name: Scalars['String']['output'];
-  next_event_fixture?: Maybe<Array<Maybe<TeamFixture>>>;
-  short_name: Scalars['String']['output'];
-};
-
-export type TeamFixture = {
-  __typename?: 'TeamFixture';
-  day: Scalars['Int']['output'];
-  is_home: Scalars['Boolean']['output'];
-  month: Scalars['Int']['output'];
-  opponent: Scalars['Int']['output'];
 };
 
 export type EventStatus = {
   __typename?: 'EventStatus';
   leagues: Scalars['String']['output'];
   status?: Maybe<Array<Maybe<GameweekStatus>>>;
-};
-
-export type GameweekStatus = {
-  __typename?: 'GameweekStatus';
-  bonus_added: Scalars['Boolean']['output'];
-  date: Scalars['String']['output'];
-  event: Scalars['Int']['output'];
-  points: Scalars['String']['output'];
-};
-
-export type Fixtures = {
-  __typename?: 'Fixtures';
-  fixtures?: Maybe<Array<Maybe<Fixture>>>;
-  id?: Maybe<Scalars['Int']['output']>;
 };
 
 export type Fixture = {
@@ -143,6 +37,20 @@ export type Fixture = {
   team_h: Scalars['Int']['output'];
   team_h_difficulty?: Maybe<Scalars['Int']['output']>;
   team_h_score?: Maybe<Scalars['Int']['output']>;
+};
+
+export type Fixtures = {
+  __typename?: 'Fixtures';
+  fixtures?: Maybe<Array<Maybe<Fixture>>>;
+  id?: Maybe<Scalars['Int']['output']>;
+};
+
+export type GameweekStatus = {
+  __typename?: 'GameweekStatus';
+  bonus_added: Scalars['Boolean']['output'];
+  date: Scalars['String']['output'];
+  event: Scalars['Int']['output'];
+  points: Scalars['String']['output'];
 };
 
 export type GetAllTeamsFixtures = {
@@ -197,6 +105,16 @@ export type Player = {
   yellow_cards?: Maybe<Scalars['Int']['output']>;
 };
 
+export type PlayerWithHighestProp = {
+  __typename?: 'PlayerWithHighestProp';
+  player?: Maybe<Player>;
+};
+
+export type PlayerWithLowestProp = {
+  __typename?: 'PlayerWithLowestProp';
+  player?: Maybe<Player>;
+};
+
 export type PlayersByProp = {
   __typename?: 'PlayersByProp';
   players?: Maybe<Array<Maybe<Player>>>;
@@ -217,14 +135,96 @@ export type PlayersSearch = {
   players?: Maybe<Array<Maybe<Player>>>;
 };
 
-export type PlayerWithHighestProp = {
-  __typename?: 'PlayerWithHighestProp';
+export type Query = {
+  __typename?: 'Query';
+  allTeams?: Maybe<AllTeams>;
+  eventStatus?: Maybe<EventStatus>;
+  fixtures?: Maybe<Fixtures>;
+  getAllTeamsFixtures?: Maybe<GetAllTeamsFixtures>;
+  getTeamsFixtures?: Maybe<GetTeamsFixtures>;
   player?: Maybe<Player>;
+  playerWithHighestProp?: Maybe<PlayerWithHighestProp>;
+  playerWithLowestProp?: Maybe<PlayerWithLowestProp>;
+  playersByProp?: Maybe<PlayersByProp>;
+  playersByPropAndPos?: Maybe<PlayersByPropAndPos>;
+  playersByTeam?: Maybe<PlayersByTeam>;
+  playersSearch?: Maybe<PlayersSearch>;
+  team?: Maybe<Team>;
 };
 
-export type PlayerWithLowestProp = {
-  __typename?: 'PlayerWithLowestProp';
-  player?: Maybe<Player>;
+
+export type QueryFixturesArgs = {
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryGetTeamsFixturesArgs = {
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryPlayerArgs = {
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryPlayerWithHighestPropArgs = {
+  prop?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPlayerWithLowestPropArgs = {
+  prop?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPlayersByPropArgs = {
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  prop?: InputMaybe<Scalars['String']['input']>;
+  reverseOrder?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryPlayersByPropAndPosArgs = {
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  prop?: InputMaybe<Scalars['String']['input']>;
+  reverseOrder?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryPlayersByTeamArgs = {
+  team?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QueryPlayersSearchArgs = {
+  amount?: InputMaybe<Scalars['Int']['input']>;
+  term?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryTeamArgs = {
+  id?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type Team = {
+  __typename?: 'Team';
+  code: Scalars['Int']['output'];
+  current_event_fixture?: Maybe<Array<Maybe<TeamFixture>>>;
+  id: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  next_event_fixture?: Maybe<Array<Maybe<TeamFixture>>>;
+  short_name: Scalars['String']['output'];
+};
+
+export type TeamFixture = {
+  __typename?: 'TeamFixture';
+  day: Scalars['Int']['output'];
+  is_home: Scalars['Boolean']['output'];
+  month: Scalars['Int']['output'];
+  opponent: Scalars['Int']['output'];
 };
 
 
@@ -298,66 +298,50 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Query: ResolverTypeWrapper<{}>;
   AllTeams: ResolverTypeWrapper<AllTeams>;
-  Team: ResolverTypeWrapper<Team>;
-  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
-  TeamFixture: ResolverTypeWrapper<TeamFixture>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  String: ResolverTypeWrapper<Scalars['String']['output']>;
   EventStatus: ResolverTypeWrapper<EventStatus>;
-  GameweekStatus: ResolverTypeWrapper<GameweekStatus>;
-  Fixtures: ResolverTypeWrapper<Fixtures>;
   Fixture: ResolverTypeWrapper<Fixture>;
+  Fixtures: ResolverTypeWrapper<Fixtures>;
+  GameweekStatus: ResolverTypeWrapper<GameweekStatus>;
   GetAllTeamsFixtures: ResolverTypeWrapper<GetAllTeamsFixtures>;
   GetTeamsFixtures: ResolverTypeWrapper<GetTeamsFixtures>;
+  Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   Player: ResolverTypeWrapper<Player>;
+  PlayerWithHighestProp: ResolverTypeWrapper<PlayerWithHighestProp>;
+  PlayerWithLowestProp: ResolverTypeWrapper<PlayerWithLowestProp>;
   PlayersByProp: ResolverTypeWrapper<PlayersByProp>;
   PlayersByPropAndPos: ResolverTypeWrapper<PlayersByPropAndPos>;
   PlayersByTeam: ResolverTypeWrapper<PlayersByTeam>;
   PlayersSearch: ResolverTypeWrapper<PlayersSearch>;
-  PlayerWithHighestProp: ResolverTypeWrapper<PlayerWithHighestProp>;
-  PlayerWithLowestProp: ResolverTypeWrapper<PlayerWithLowestProp>;
+  Query: ResolverTypeWrapper<{}>;
+  String: ResolverTypeWrapper<Scalars['String']['output']>;
+  Team: ResolverTypeWrapper<Team>;
+  TeamFixture: ResolverTypeWrapper<TeamFixture>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Query: {};
   AllTeams: AllTeams;
-  Team: Team;
-  Int: Scalars['Int']['output'];
-  TeamFixture: TeamFixture;
   Boolean: Scalars['Boolean']['output'];
-  String: Scalars['String']['output'];
   EventStatus: EventStatus;
-  GameweekStatus: GameweekStatus;
-  Fixtures: Fixtures;
   Fixture: Fixture;
+  Fixtures: Fixtures;
+  GameweekStatus: GameweekStatus;
   GetAllTeamsFixtures: GetAllTeamsFixtures;
   GetTeamsFixtures: GetTeamsFixtures;
+  Int: Scalars['Int']['output'];
   Player: Player;
+  PlayerWithHighestProp: PlayerWithHighestProp;
+  PlayerWithLowestProp: PlayerWithLowestProp;
   PlayersByProp: PlayersByProp;
   PlayersByPropAndPos: PlayersByPropAndPos;
   PlayersByTeam: PlayersByTeam;
   PlayersSearch: PlayersSearch;
-  PlayerWithHighestProp: PlayerWithHighestProp;
-  PlayerWithLowestProp: PlayerWithLowestProp;
-};
-
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  allTeams?: Resolver<Maybe<ResolversTypes['AllTeams']>, ParentType, ContextType>;
-  eventStatus?: Resolver<Maybe<ResolversTypes['EventStatus']>, ParentType, ContextType>;
-  fixtures?: Resolver<Maybe<ResolversTypes['Fixtures']>, ParentType, ContextType, Partial<QueryFixturesArgs>>;
-  getAllTeamsFixtures?: Resolver<Maybe<ResolversTypes['GetAllTeamsFixtures']>, ParentType, ContextType>;
-  getTeamsFixtures?: Resolver<Maybe<ResolversTypes['GetTeamsFixtures']>, ParentType, ContextType, Partial<QueryGetTeamsFixturesArgs>>;
-  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType, Partial<QueryPlayerArgs>>;
-  playersByProp?: Resolver<Maybe<ResolversTypes['PlayersByProp']>, ParentType, ContextType, Partial<QueryPlayersByPropArgs>>;
-  playersByPropAndPos?: Resolver<Maybe<ResolversTypes['PlayersByPropAndPos']>, ParentType, ContextType, Partial<QueryPlayersByPropAndPosArgs>>;
-  playersByTeam?: Resolver<Maybe<ResolversTypes['PlayersByTeam']>, ParentType, ContextType, Partial<QueryPlayersByTeamArgs>>;
-  playersSearch?: Resolver<Maybe<ResolversTypes['PlayersSearch']>, ParentType, ContextType, Partial<QueryPlayersSearchArgs>>;
-  playerWithHighestProp?: Resolver<Maybe<ResolversTypes['PlayerWithHighestProp']>, ParentType, ContextType, Partial<QueryPlayerWithHighestPropArgs>>;
-  playerWithLowestProp?: Resolver<Maybe<ResolversTypes['PlayerWithLowestProp']>, ParentType, ContextType, Partial<QueryPlayerWithLowestPropArgs>>;
-  team?: Resolver<Maybe<ResolversTypes['Team']>, ParentType, ContextType, Partial<QueryTeamArgs>>;
+  Query: {};
+  String: Scalars['String']['output'];
+  Team: Team;
+  TeamFixture: TeamFixture;
 };
 
 export type AllTeamsResolvers<ContextType = any, ParentType extends ResolversParentTypes['AllTeams'] = ResolversParentTypes['AllTeams']> = {
@@ -365,41 +349,9 @@ export type AllTeamsResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type TeamResolvers<ContextType = any, ParentType extends ResolversParentTypes['Team'] = ResolversParentTypes['Team']> = {
-  code?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  current_event_fixture?: Resolver<Maybe<Array<Maybe<ResolversTypes['TeamFixture']>>>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  next_event_fixture?: Resolver<Maybe<Array<Maybe<ResolversTypes['TeamFixture']>>>, ParentType, ContextType>;
-  short_name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TeamFixtureResolvers<ContextType = any, ParentType extends ResolversParentTypes['TeamFixture'] = ResolversParentTypes['TeamFixture']> = {
-  day?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  is_home?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  month?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  opponent?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
 export type EventStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['EventStatus'] = ResolversParentTypes['EventStatus']> = {
   leagues?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   status?: Resolver<Maybe<Array<Maybe<ResolversTypes['GameweekStatus']>>>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type GameweekStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['GameweekStatus'] = ResolversParentTypes['GameweekStatus']> = {
-  bonus_added?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  event?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  points?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type FixturesResolvers<ContextType = any, ParentType extends ResolversParentTypes['Fixtures'] = ResolversParentTypes['Fixtures']> = {
-  fixtures?: Resolver<Maybe<Array<Maybe<ResolversTypes['Fixture']>>>, ParentType, ContextType>;
-  id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -413,6 +365,20 @@ export type FixtureResolvers<ContextType = any, ParentType extends ResolversPare
   team_h?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   team_h_difficulty?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   team_h_score?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type FixturesResolvers<ContextType = any, ParentType extends ResolversParentTypes['Fixtures'] = ResolversParentTypes['Fixtures']> = {
+  fixtures?: Resolver<Maybe<Array<Maybe<ResolversTypes['Fixture']>>>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type GameweekStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['GameweekStatus'] = ResolversParentTypes['GameweekStatus']> = {
+  bonus_added?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  event?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  points?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -468,6 +434,16 @@ export type PlayerResolvers<ContextType = any, ParentType extends ResolversParen
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type PlayerWithHighestPropResolvers<ContextType = any, ParentType extends ResolversParentTypes['PlayerWithHighestProp'] = ResolversParentTypes['PlayerWithHighestProp']> = {
+  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type PlayerWithLowestPropResolvers<ContextType = any, ParentType extends ResolversParentTypes['PlayerWithLowestProp'] = ResolversParentTypes['PlayerWithLowestProp']> = {
+  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type PlayersByPropResolvers<ContextType = any, ParentType extends ResolversParentTypes['PlayersByProp'] = ResolversParentTypes['PlayersByProp']> = {
   players?: Resolver<Maybe<Array<Maybe<ResolversTypes['Player']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
@@ -488,33 +464,57 @@ export type PlayersSearchResolvers<ContextType = any, ParentType extends Resolve
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type PlayerWithHighestPropResolvers<ContextType = any, ParentType extends ResolversParentTypes['PlayerWithHighestProp'] = ResolversParentTypes['PlayerWithHighestProp']> = {
-  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType>;
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  allTeams?: Resolver<Maybe<ResolversTypes['AllTeams']>, ParentType, ContextType>;
+  eventStatus?: Resolver<Maybe<ResolversTypes['EventStatus']>, ParentType, ContextType>;
+  fixtures?: Resolver<Maybe<ResolversTypes['Fixtures']>, ParentType, ContextType, Partial<QueryFixturesArgs>>;
+  getAllTeamsFixtures?: Resolver<Maybe<ResolversTypes['GetAllTeamsFixtures']>, ParentType, ContextType>;
+  getTeamsFixtures?: Resolver<Maybe<ResolversTypes['GetTeamsFixtures']>, ParentType, ContextType, Partial<QueryGetTeamsFixturesArgs>>;
+  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType, Partial<QueryPlayerArgs>>;
+  playerWithHighestProp?: Resolver<Maybe<ResolversTypes['PlayerWithHighestProp']>, ParentType, ContextType, Partial<QueryPlayerWithHighestPropArgs>>;
+  playerWithLowestProp?: Resolver<Maybe<ResolversTypes['PlayerWithLowestProp']>, ParentType, ContextType, Partial<QueryPlayerWithLowestPropArgs>>;
+  playersByProp?: Resolver<Maybe<ResolversTypes['PlayersByProp']>, ParentType, ContextType, Partial<QueryPlayersByPropArgs>>;
+  playersByPropAndPos?: Resolver<Maybe<ResolversTypes['PlayersByPropAndPos']>, ParentType, ContextType, Partial<QueryPlayersByPropAndPosArgs>>;
+  playersByTeam?: Resolver<Maybe<ResolversTypes['PlayersByTeam']>, ParentType, ContextType, Partial<QueryPlayersByTeamArgs>>;
+  playersSearch?: Resolver<Maybe<ResolversTypes['PlayersSearch']>, ParentType, ContextType, Partial<QueryPlayersSearchArgs>>;
+  team?: Resolver<Maybe<ResolversTypes['Team']>, ParentType, ContextType, Partial<QueryTeamArgs>>;
+};
+
+export type TeamResolvers<ContextType = any, ParentType extends ResolversParentTypes['Team'] = ResolversParentTypes['Team']> = {
+  code?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  current_event_fixture?: Resolver<Maybe<Array<Maybe<ResolversTypes['TeamFixture']>>>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  next_event_fixture?: Resolver<Maybe<Array<Maybe<ResolversTypes['TeamFixture']>>>, ParentType, ContextType>;
+  short_name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type PlayerWithLowestPropResolvers<ContextType = any, ParentType extends ResolversParentTypes['PlayerWithLowestProp'] = ResolversParentTypes['PlayerWithLowestProp']> = {
-  player?: Resolver<Maybe<ResolversTypes['Player']>, ParentType, ContextType>;
+export type TeamFixtureResolvers<ContextType = any, ParentType extends ResolversParentTypes['TeamFixture'] = ResolversParentTypes['TeamFixture']> = {
+  day?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  is_home?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  month?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  opponent?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  Query?: QueryResolvers<ContextType>;
   AllTeams?: AllTeamsResolvers<ContextType>;
-  Team?: TeamResolvers<ContextType>;
-  TeamFixture?: TeamFixtureResolvers<ContextType>;
   EventStatus?: EventStatusResolvers<ContextType>;
-  GameweekStatus?: GameweekStatusResolvers<ContextType>;
-  Fixtures?: FixturesResolvers<ContextType>;
   Fixture?: FixtureResolvers<ContextType>;
+  Fixtures?: FixturesResolvers<ContextType>;
+  GameweekStatus?: GameweekStatusResolvers<ContextType>;
   GetAllTeamsFixtures?: GetAllTeamsFixturesResolvers<ContextType>;
   GetTeamsFixtures?: GetTeamsFixturesResolvers<ContextType>;
   Player?: PlayerResolvers<ContextType>;
+  PlayerWithHighestProp?: PlayerWithHighestPropResolvers<ContextType>;
+  PlayerWithLowestProp?: PlayerWithLowestPropResolvers<ContextType>;
   PlayersByProp?: PlayersByPropResolvers<ContextType>;
   PlayersByPropAndPos?: PlayersByPropAndPosResolvers<ContextType>;
   PlayersByTeam?: PlayersByTeamResolvers<ContextType>;
   PlayersSearch?: PlayersSearchResolvers<ContextType>;
-  PlayerWithHighestProp?: PlayerWithHighestPropResolvers<ContextType>;
-  PlayerWithLowestProp?: PlayerWithLowestPropResolvers<ContextType>;
+  Query?: QueryResolvers<ContextType>;
+  Team?: TeamResolvers<ContextType>;
+  TeamFixture?: TeamFixtureResolvers<ContextType>;
 };
 
