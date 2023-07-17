@@ -142,7 +142,7 @@ resource "aws_appsync_resolver" "playersSearch_resolver" {
 resource "aws_appsync_resolver" "eventStatus_resolver" {
   api_id      = aws_appsync_graphql_api.appsync.id
   type        = "Query"
-  field       = "player"
+  field       = "eventStatus"
   data_source = aws_appsync_datasource.fpl_gql_datasource.name
 
   request_template  = file("../mapping-templates/common-request.vtl")
