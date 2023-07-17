@@ -15,8 +15,8 @@ type Player {
   first_name: String!
   second_name: String!
   web_name: String!
-  total_points: Int!,
-  event_points: Int!,
+  total_points: Int!
+  event_points: Int!
   team: Int!
   now_cost: Int!
   value_form: String!
@@ -42,7 +42,7 @@ type Player {
   yellow_cards: Int
   red_cards: Int
   saves: Int
-  bonus: Int
+  bps: Int
   influence: String
   creativity: String
   threat: String
@@ -85,7 +85,7 @@ type Fixtures {
 }
 
 type Fixture {
-  kickoff_time_formatted: String!
+  kickoff_time: String!
   started: Boolean!
   kickoff_time: String!
   team_h_score: Int
@@ -127,7 +127,12 @@ type Query {
   playerWithHighestProp(prop: String): PlayerWithHighestProp
   playerWithLowestProp(prop: String): PlayerWithLowestProp
   playersByProp(prop: String, amount: Int, reverseOrder: Boolean): PlayersByProp
-  playersByPropAndPos(prop: String, position: String, amount: Int, reverseOrder: Boolean): PlayersByPropAndPos
+  playersByPropAndPos(
+    prop: String
+    position: String
+    amount: Int
+    reverseOrder: Boolean
+  ): PlayersByPropAndPos
   allTeams: AllTeams
   team(id: Int): Team
   fixtures(id: Int): Fixtures

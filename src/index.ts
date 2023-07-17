@@ -1,6 +1,7 @@
-const { resolvers } = require("./resolvers");
+import { Handler } from "aws-lambda";
+import { resolvers } from "./resolvers";
 
-module.exports.graphql = async (event) => {
+export const graphql: Handler = async (event) => {
   try {
     console.info(`Getting data for field ${event.field}`);
     const data = resolvers[event.field](event.arguments);
