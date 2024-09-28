@@ -2,7 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
-    "target": "es5"
+    "target": "es5",
+    "skipLibCheck": true
   },
-  "include": ["./src/**/*", "mocks"]
+  "include": ["./src/**/*", "./mocks/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

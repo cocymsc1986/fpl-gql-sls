@@ -7,7 +7,7 @@ resource "aws_appsync_graphql_api" "appsync" {
 resource "aws_appsync_api_key" "appsync_api_key" {
   api_id = aws_appsync_graphql_api.appsync.id
   # hardcoding for now until rotation implemented
-  expires = "2024-08-07T04:00:00Z"
+  expires = "2025-09-28T04:00:00Z"
 }
 
 # Create data source in appsync from lambda function.
