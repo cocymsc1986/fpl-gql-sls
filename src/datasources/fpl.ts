@@ -9,35 +9,30 @@ import {
 
 const rootUrl = "https://fantasy.premierleague.com/api";
 
+const fplHeaders = {
+  "User-Agent":
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  "Referer": "https://fantasy.premierleague.com/",
+  "Origin": "https://fantasy.premierleague.com",
+};
+
 export const service = {
   getData: async (): Promise<GetDataResponse> =>
     await axios.get(`${rootUrl}/bootstrap-static/`, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-      },
+      headers: fplHeaders,
     }),
   getEventStatus: async (): Promise<GetEventStatusResponse> =>
     await axios.get(`${rootUrl}/event-status/`, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-      },
+      headers: fplHeaders,
     }),
   getFixtures: async (): Promise<GetFixturesResponse> =>
     await axios.get(`${rootUrl}/fixtures/`, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-      },
+      headers: fplHeaders,
     }),
   getFixturesForGameweek: async (
     gw: number
   ): Promise<GetFixturesForGameweekResponse> =>
     await axios.get(`${rootUrl}/fixtures?event=${gw}`, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-      },
+      headers: fplHeaders,
     }),
 };
