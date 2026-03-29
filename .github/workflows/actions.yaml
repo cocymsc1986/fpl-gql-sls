@@ -67,7 +67,7 @@ jobs:
           terraform_wrapper: false
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -upgrade
         working-directory: terraform
         shell: bash
       - name: Terraform Plan
