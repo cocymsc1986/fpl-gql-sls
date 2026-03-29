@@ -59,15 +59,6 @@ type Team {
   code: Int!
   name: String!
   short_name: String!
-  current_event_fixture: [TeamFixture]
-  next_event_fixture: [TeamFixture]
-}
-
-type TeamFixture {
-  is_home: Boolean!
-  opponent: Int!
-  month: Int!
-  day: Int!
 }
 
 type GetTeamsFixtures {

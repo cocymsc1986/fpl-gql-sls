@@ -2,7 +2,8 @@
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
-    "target": "es5",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
     "skipLibCheck": true
   },
   "include": ["./src/**/*", "./mocks/**/*"],
