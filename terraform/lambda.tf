@@ -20,8 +20,10 @@ resource "aws_lambda_function" "fpl_gql" {
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_fpl.key
 
-  runtime = "nodejs20.x"
-  handler = "index.graphql"
+  runtime     = "nodejs20.x"
+  handler     = "index.graphql"
+  memory_size = 512
+  timeout     = 30
 
   source_code_hash = data.archive_file.lambda_fpl.output_base64sha256
 

@@ -26,6 +26,7 @@ export const eventStatus = async (): Promise<EventStatus> => {
     return data;
   } catch (err) {
     console.error("Error getting event status: ", err);
+    throw err;
   }
 };
 
@@ -43,6 +44,7 @@ export const player = async ({ id }: { id: number }): Promise<Player> => {
     return player;
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -64,6 +66,7 @@ export const playersByTeam = async ({
     return { players };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -90,6 +93,7 @@ export const playerWithHighestProp = async ({
     return { player };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -111,6 +115,7 @@ export const playerWithLowestProp = async ({
     return { player };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -138,6 +143,7 @@ export const playersByProp = async ({
     return { players };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -167,6 +173,7 @@ export const playersSearch = async ({
     return { players };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -209,6 +216,7 @@ export const playersByPropAndPos = async ({
     return { players };
   } catch (err) {
     console.error("Error getting player data: ", err);
+    throw err;
   }
 };
 
@@ -227,6 +235,7 @@ export const team = async ({ id }: { id: number }): Promise<Team> => {
     return team;
   } catch (err) {
     console.error("Error getting team data: ", err);
+    throw err;
   }
 };
 
@@ -243,6 +252,7 @@ export const allTeams = async (): Promise<AllTeams> => {
     return { teams };
   } catch (err) {
     console.error("Error getting team data: ", err);
+    throw err;
   }
 };
 
@@ -259,6 +269,7 @@ export const fixtures = async ({ id }: { id?: number }): Promise<Fixtures> => {
     return { fixtures, id: gw };
   } catch (err) {
     console.error("Error getting fixture data: ", err);
+    throw err;
   }
 };
 
@@ -285,6 +296,7 @@ export const getTeamsFixtures = async ({
     return { fixtures, id };
   } catch (err) {
     console.error("Error getting teams fixtures: ", err);
+    throw err;
   }
 };
 
@@ -309,6 +321,7 @@ export const getAllTeamsFixtures = async (): Promise<GetAllTeamsFixtures> => {
     return { fixtures: teamSortedFixtures };
   } catch (err) {
     console.error("Error getting teams fixtures: ", err);
+    throw err;
   }
 };
 

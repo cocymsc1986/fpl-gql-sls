@@ -1,4 +1,5 @@
 import axios from "axios";
+import https from "https";
 
 import {
   GetDataResponse,
@@ -16,23 +17,20 @@ const fplHeaders = {
   "Origin": "https://fantasy.premierleague.com",
 };
 
+const client = axios.create({
+  httpsAgent: new https.Agent({ keepAlive: true }),
+  headers: fplHeaders,
+});
+
 export const service = {
   getData: async (): Promise<GetDataResponse> =>
-    await axios.get(`${rootUrl}/bootstrap-static/`, {
-      headers: fplHeaders,
-    }),
+    await client.get(`${rootUrl}/bootstrap-static/`),
   getEventStatus: async (): Promise<GetEventStatusResponse> =>
-    await axios.get(`${rootUrl}/event-status/`, {
-      headers: fplHeaders,
-    }),
+    await client.get(`${rootUrl}/event-status/`),
   getFixtures: async (): Promise<GetFixturesResponse> =>
-    await axios.get(`${rootUrl}/fixtures/`, {
-      headers: fplHeaders,
-    }),
+    await client.get(`${rootUrl}/fixtures/`),
   getFixturesForGameweek: async (
     gw: number
   ): Promise<GetFixturesForGameweekResponse> =>
-    await axios.get(`${rootUrl}/fixtures?event=${gw}`, {
-      headers: fplHeaders,
-    }),
+    await client.get(`${rootUrl}/fixtures?event=${gw}`),
 };
