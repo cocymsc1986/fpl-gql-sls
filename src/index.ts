@@ -4,7 +4,7 @@ import { resolvers } from "./resolvers";
 export const graphql: Handler = async (event) => {
   try {
     console.info(`Getting data for field ${event.field}`);
-    const data = resolvers[event.field](event.arguments);
+    const data = await resolvers[event.field](event.arguments);
 
     return data;
   } catch (e) {
